@@ -15,7 +15,7 @@ h1, h2, h3, h4, h5, h6, p, span, a, li {
     height: 100%;
     top: 0;
     left: 0;
-    background-image: url(img/bg-lp.jpg);
+    background-image: url(img/bg-lp3.jpg);
     background-size: cover;
     background-position: center bottom;
     background-repeat: no-repeat;
@@ -50,7 +50,7 @@ h1, h2, h3, h4, h5, h6, p, span, a, li {
 }
 @media (max-width: 1199px) and (orientation: portrait) {
     .background {
-        background-image: url(img/bg-lp-mobile.jpg);
+        background-image: url(img/bg-lp3-mobile.jpg);
     }
 }
 @media (min-width: 1900px) {
