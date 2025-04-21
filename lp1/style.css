@@ -1,3 +1,15 @@
+:root {
+    --color-white: #fff;
+    --fw-thin: 100;
+    --fw-extra-light: 200;
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semi-bold: 600;
+    --fw-bold: 700;
+    --fw-extra-bold: 800;
+    --fw-black: 900;
+}
 * {
     box-sizing: border-box;
     position: relative;
@@ -5,9 +17,17 @@
 html, body {
     padding: 0;
     margin: 0;
+    font-family: "Figtree", sans-serif;
+    color: var(--color-white);
 }
 h1, h2, h3, h4, h5, h6, p, span, a, li {
     margin-bottom: 0;
+}
+.app {
+    background-image: url(/lp1/img/bg-lp1.jpg);
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .background {
     position: absolute;
@@ -24,18 +44,192 @@ h1, h2, h3, h4, h5, h6, p, span, a, li {
     animation: pulse 0.6s infinite alternate;
     transform-origin: center center;
 }
-.intro-caption {
-    display: block;
-    max-width: 47%;
-    width: 100%;
-}
 @keyframes pulse {
     100% {
         transform: scale(0.85);
     }
 }
+#introduction::before, #introduction::after, #gaming-experience::before, #gaming-experience::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+#introduction::before {
+    /* background-image: url(img/coins-lp1-section-1.png); */
+}
+#introduction::after {
+    background-image: url(img/coins-lp1-section-1.png);
+}
+#gaming-experience::after {
+    background-image: url(img/coins-lp1-section-2.png)
+}
+#gaming-experience > div {
+    z-index: 1;
+}
+.intro-card {
+    position: absolute;
+    width: 50vw;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+.intro-caption {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 47%;
+    width: 100%;
+    z-index: 1;
+}
+h4 {
+    font-size: 36px;
+    line-height: 1;
+    font-weight: var(--fw-bold);
+}
+p {
+    font-size: 27px;
+    line-height: 34px;
+    font-weight: var(--fw-medium);
+}
+.section-title {
+    display: block;
+    width: 100%;
+}
+#gaming-experience {
+    padding: 30px 0 90px;
+}
+#gaming-experience h2 {
+    margin-bottom: 16px;
+}
+.next-level-card {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 560px;
+}
+.next-level-card .card-item {
+    position: absolute;
+}
+#reviews {
+    padding: 90px 0;
+}
+#reviews .section-title h2, #reviews .section-title h4 {
+    display: block;
+    margin: 0 auto 50px;
+}
+#reviews .section-title h2 {
+    width: 88%;
+}
+#reviews .section-title h4 {
+    width: 70%;
+}
+#review-slider .swiper-slide {
+    transition: all 0.3s ease;
+}
+#review-slider .swiper-slide:not(.swiper-slide-prev):not(.swiper-slide-active):not(.swiper-slide-next) {
+    opacity: 0;
+}
+/* #review-slider .swiper-slide.swiper-slide-active {
+    transform-origin: center center;
+    transform: scale(1.5);
+} */
+.review-nav {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 150px;
+    z-index: 1;
+}
+.review-nav-prev {
+    left: 0;
+}
+.review-nav-next {
+    right: 0;
+}
+button.review-nav:not(:hover) {
+    opacity: 0.8;
+}
 @media (max-width: 767px) {
-    
+    .app {
+        background-color: #3b0002;
+        background-image: none;
+    }
+    #introduction {
+        padding-bottom: 110px;
+    }
+    #introduction::before {
+        background-image: url(img/bg-mobile-section-01.png);
+        background-position: center bottom;
+    }
+    #introduction::after {
+        background-image: url(img/coins-lp1-section-1-mobile.png);
+    }
+    #gaming-experience::before {
+        background-image: url(img/bg-mobile-section-02.png);
+    }
+    #gaming-experience::after {
+        background-image: url(img/coins-lp1-section-2-mobile.png);
+    }
+    #reviews::before {
+        background-image: url(img/bg-mobile-section-03.png);
+    }
+    .intro-caption {
+        max-width: 100%;
+        padding: 90px 24px 32px;
+        gap: 20px;
+    }
+    .intro-card {
+        position: relative;
+        top: 0;
+        left: auto;
+        right: auto;
+        transform: translate(0,0);
+        width: 300px;
+    }
+    #gaming-experience {
+        padding-top: 90px;
+    }
+    h4 {
+        font-size: 20px;
+        line-height: 24px;
+    }
+    p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .next-level-card {
+        height: 100%;
+    }
+    .next-level-card .card-item {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+    }
+    .next-level-card .card-item:not(:first-child) {
+        margin-top: -50px;
+    }
+    .next-level-card .card-item img {
+        margin-left: -20px;
+        width: calc( 100% + 25px );
+    }
+}
+@media (min-width: 768px) {
+    #introduction .container-fluid .row {
+        min-height: 100vh;
+    }
 }
 @media (min-width: 768px) and (max-width: 1199px) {
     
@@ -47,7 +241,78 @@ h1, h2, h3, h4, h5, h6, p, span, a, li {
     .intro-caption {
         margin-left: 90px;
     }
+    .next-level-card .card-item {
+        width: 400px;
+    }
+    .next-level-card .card-item:nth-child(1), .next-level-card .card-item:nth-child(2) {
+        left: 0;
+    }
+    .next-level-card .card-item:nth-child(4), .next-level-card .card-item:nth-child(5) {
+        right: 0;
+    }
+    .next-level-card .card-item:nth-child(1), .next-level-card .card-item:nth-child(5) {
+        top: 0;
+    }
+    .next-level-card .card-item:nth-child(2), .next-level-card .card-item:nth-child(4) {
+        top: 215px;
+    }
+    .next-level-card .card-item:nth-child(3) {
+        left: 50%;
+        bottom: 0;
+        transform: translate(-50%, 0)
+    }
+    .review-nav {
+        width: 110px;
+    }
+}
+@media (min-width: 1400px) {
+    h4 {
+        font-size: 40px;
+    }
+    p {
+        font-size: 30px;
+        line-height: 38px;
+    }
+    #gaming-experience {
+        padding: 120px 0;
+    }
+    .next-level-card {
+        height: 620px;
+    }
+    .next-level-card .card-item {
+        width: 450px;
+    }
+    #review {
+        padding-top: 90px;
+    }
 }
 @media (min-width: 1900px) {
-
+    h4 {
+        font-size: 55px;
+    }
+    p {
+        font-size: 42px;
+        line-height: 50px;
+    }
+    #gaming-experience {
+        padding: 120px 0;
+    }
+    .next-level-card {
+        height: 900px;
+    }
+    .next-level-card .card-item {
+        width: 600px;
+    }
+    .next-level-card .card-item:nth-child(1), .next-level-card .card-item:nth-child(2) {
+        left: 0;
+    }
+    .next-level-card .card-item:nth-child(4), .next-level-card .card-item:nth-child(5) {
+        right: 0;
+    }
+    .next-level-card .card-item:nth-child(1), .next-level-card .card-item:nth-child(5) {
+        top: 0;
+    }
+    .next-level-card .card-item:nth-child(2), .next-level-card .card-item:nth-child(4) {
+        top: 350px;
+    }
 }
