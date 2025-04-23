@@ -160,6 +160,47 @@ p {
 button.review-nav:not(:hover) {
     opacity: 0.8;
 }
+#download {
+    padding: 60px 0;
+    background: linear-gradient(to bottom, #240204, #520001);
+}
+#download .section-title {
+    margin-bottom: 60px;
+}
+.download-apps {
+    gap: 60px;
+}
+.download-apps .app-item {
+    width: 350px;
+}
+.download-apps .app-item a {
+    display: block;
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+}
+.download-apps .app-item a::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    bottom: -50%;
+    left: -50%;
+    background: linear-gradient(to bottom, rgba(229, 172, 142, 0), rgba(255,255,255,0.5) 50%, rgba(229, 172, 142, 0));
+    transform: rotateZ(60deg) translate(-5em, 7.5em);
+    z-index: 2;
+    opacity: 0;
+}
+.download-apps .app-item a:hover::before, .download-apps .app-item a:focus::before {
+    animation: shine 1s forwards;
+    opacity: 1;
+}
+@keyframes shine {
+    100% {
+        transform: rotateZ(60deg) translate(2em, -18em);
+    }
+}
 @media (max-width: 767px) {
     .app {
         background-color: #3b0002;
@@ -174,15 +215,6 @@ button.review-nav:not(:hover) {
     }
     #introduction::after {
         background-image: url(img/coins-lp1-section-1-mobile.png);
-    }
-    #gaming-experience::before {
-        background-image: url(img/bg-mobile-section-02.png);
-    }
-    #gaming-experience::after {
-        background-image: url(img/coins-lp1-section-2-mobile.png);
-    }
-    #reviews::before {
-        background-image: url(img/bg-mobile-section-03.png);
     }
     .intro-caption {
         max-width: 100%;
@@ -225,6 +257,42 @@ button.review-nav:not(:hover) {
         margin-left: -20px;
         width: calc( 100% + 25px );
     }
+    #gaming-experience::before {
+        background-image: url(img/bg-mobile-section-02.png);
+    }
+    #gaming-experience::after {
+        background-image: url(img/coins-lp1-section-2-mobile.png);
+    }
+    #reviews {
+        padding: 60px 0;
+    }
+    #reviews::before {
+        background-image: url(img/bg-mobile-section-03.png);
+    }
+    #reviews .section-title h2, #reviews .section-title h4 {
+        width: 100%;
+    }
+    #reviews .section-title h2 {
+        margin-bottom: 25px;
+    }
+    #reviews .what-people-say .section-title h2 {
+        width: 75%;
+    }
+    .review-nav {
+        width: 80px;
+    }
+    #review-slider .swiper-slide {
+        width: 320px;
+    }
+    #download .section-title {
+        margin-bottom: 30px;
+    }
+    .download-apps {
+        gap: 30px;
+    }
+    .download-apps .app-item {
+        width: 100%;
+    }
 }
 @media (min-width: 768px) {
     #introduction .container-fluid .row {
@@ -264,6 +332,9 @@ button.review-nav:not(:hover) {
     .review-nav {
         width: 110px;
     }
+    #review-slider .swiper-slide {
+        width: 500px;
+    }
 }
 @media (min-width: 1400px) {
     h4 {
@@ -284,6 +355,9 @@ button.review-nav:not(:hover) {
     }
     #review {
         padding-top: 90px;
+    }
+    #review-slider .swiper-slide {
+        width: 600px;
     }
 }
 @media (min-width: 1900px) {
@@ -314,5 +388,11 @@ button.review-nav:not(:hover) {
     }
     .next-level-card .card-item:nth-child(2), .next-level-card .card-item:nth-child(4) {
         top: 350px;
+    }
+    #review-slider .swiper-slide {
+        width: 700px;
+    }
+    .download-apps .app-item {
+        width: 450px;
     }
 }

@@ -6,7 +6,7 @@ jQuery(document).ready(function ($) {
             return {
                 rotate: 0,
                 stretch: 0,
-                depth: 80,
+                depth: 1000,
                 modifier: 1,
                 slideShadows: false,
             };
@@ -21,7 +21,7 @@ jQuery(document).ready(function ($) {
         } else if (mediaSet.lg.matches) {
             return {
                 rotate: 0,
-                stretch: 900,
+                stretch: 880,
                 depth: 500,
                 modifier: 1,
                 slideShadows: false,
@@ -29,7 +29,7 @@ jQuery(document).ready(function ($) {
         } else if (mediaSet.xl.matches) {
             return {
                 rotate: 0,
-                stretch: 1025,
+                stretch: 1000,
                 depth: 500,
                 modifier: 1,
                 slideShadows: false,
@@ -37,7 +37,7 @@ jQuery(document).ready(function ($) {
         } else if (mediaSet.xl2.matches) {
             return {
                 rotate: 0,
-                stretch: 1350,
+                stretch: 1080,
                 depth: 500,
                 modifier: 1,
                 slideShadows: false,
@@ -45,7 +45,7 @@ jQuery(document).ready(function ($) {
         } else if (mediaSet.xxl.matches) {
             return {
                 rotate: 0,
-                stretch: 1400,
+                stretch: 1330,
                 depth: 500,
                 modifier: 1,
                 slideShadows: false
@@ -59,7 +59,7 @@ jQuery(document).ready(function ($) {
         md: window.matchMedia("(min-width: 768px) and (max-width: 1199px)"),
         lg: window.matchMedia("(min-width: 1200px) and (max-width: 1439px)"),
         xl: window.matchMedia("(min-width: 1440px) and (max-width: 1559px)"),
-        xl2: window.matchMedia("(min-width: 1560px) and (max-width: 18999px)"),
+        xl2: window.matchMedia("(min-width: 1560px) and (max-width: 1899px)"),
         xxl: window.matchMedia("(min-width: 1900px)")
     };
   
@@ -72,7 +72,7 @@ jQuery(document).ready(function ($) {
         }
         
         reviewSlider = new Swiper('#review-slider', {
-            slidesPerView: 2,
+            slidesPerView: "auto",
             effect: 'coverflow',
             grabCursor: true,
             centeredSlides: true,
@@ -83,11 +83,6 @@ jQuery(document).ready(function ($) {
                 nextEl: '.review-nav-next',
             },
             coverflowEffect: effectSettings,
-            breakpoints: {
-                1200: {
-                    slidesPerView: 2
-                }
-            }
         });
     }
   
