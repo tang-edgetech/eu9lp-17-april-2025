@@ -68,6 +68,9 @@ h1, h2, h3, h4, h5, h6, p, span, a, li {
 #introduction::after {
     background-image: url(img/coins-lp1-section-1.png);
 }
+#gaming-experience {
+    overflow-x: hidden;
+}
 #gaming-experience::after {
     background-image: url(img/coins-lp1-section-2.png)
 }
@@ -117,6 +120,10 @@ p {
 }
 .next-level-card .card-item {
     position: absolute;
+    transition: all 0.5s ease;
+}
+.next-level-card .card-item.active {
+    transform: scale(1.15);
 }
 #reviews {
     padding: 90px 0;
@@ -249,6 +256,7 @@ button.review-nav:not(:hover) {
         left: auto;
         right: auto;
         bottom: auto;
+        transform-origin: center top;
     }
     .next-level-card .card-item:not(:first-child) {
         margin-top: -50px;
@@ -297,6 +305,24 @@ button.review-nav:not(:hover) {
 @media (min-width: 768px) {
     #introduction .container-fluid .row {
         min-height: 100vh;
+    }
+    .next-level-card .card-item:nth-child(1) {
+       transform-origin: bottom right; 
+    }
+    .next-level-card .card-item:nth-child(2) {
+       transform-origin: center right; 
+    }
+    .next-level-card .card-item:nth-child(3) {
+       transform-origin: center top; 
+    }
+    .next-level-card .card-item:nth-child(3).active {
+        transform: translate(-50%, 0) scale(1.15);
+    }
+    .next-level-card .card-item:nth-child(4) {
+       transform-origin: center left; 
+    }
+    .next-level-card .card-item:nth-child(5) {
+       transform-origin: bottom left; 
     }
 }
 @media (min-width: 768px) and (max-width: 1199px) {

@@ -65,7 +65,6 @@ jQuery(document).ready(function ($) {
   
     function initSwiper() {
         const effectSettings = getCoverflowEffect(mediaSet);
-        console.log('Media'+JSON.stringify(effectSettings));
 
         if (reviewSlider) {
             reviewSlider.destroy(true, true);
@@ -94,5 +93,34 @@ jQuery(document).ready(function ($) {
     Object.values(mediaSet).forEach(mq => {
         mq.addEventListener('change', initSwiper);
     });
+
+    var startNextLevel = false;
+    function nextLevelCard() {
+        if( $('.next-level-card').is(':visible') ) {
+
+            if( startNextLevel == false ) {
+                const $cards = $('.next-level-card .card-item');
+                const totalItems = $cards.length;
+                let currentIndex = 0;
+              
+                // Add active class to the first card-item
+                $cards.eq(currentIndex).addClass('active');
+              
+                setInterval(function() {
+                    // Remove active from the current item
+                    $cards.eq(currentIndex).removeClass('active');
+    
+                    // Increment index like a for loop, loop back if at the end
+                    currentIndex = (currentIndex + 1) % totalItems;
+    
+                    // Add active to the next item
+                    $cards.eq(currentIndex).addClass('active');
+                }, 3000);
+                startNextLevel = true;
+            }
+        }
+    }
+    nextLevelCard();
+    $(window).bind('scroll', nextLevelCard);
 });
   
